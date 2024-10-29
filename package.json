@@ -1,0 +1,40 @@
+{
+  "name": "file-handler",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "parcel build",
+    "dev": "parcel build && parcel watch --target default --no-hmr & sleep 2 && nodemon ./dist/index.js",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "fastify": "^5.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.13.0",
+    "@types/node": "^22.8.1",
+    "eslint": "^9.13.0",
+    "globals": "^15.11.0",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "nodemon": "^3.1.7",
+    "parcel": "^2.12.0",
+    "prettier": "3.3.3",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.12.1"
+  },
+  "targets": {
+    "default": {
+      "source": "src/index.ts",
+      "context": "node",
+      "engines": {
+        "node": ">= 12"
+      },
+      "outputFormat": "commonjs"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": "eslint --fix",
+    "**/*": "prettier --write --ignore-unknown"
+  }
+}
